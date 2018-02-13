@@ -1,0 +1,6 @@
+Some audio files were sourced from https://www.zapsplat.com/.
+These two audio files were also used:
+https://freesound.org/people/Reitanna/sounds/323740/
+https://freesound.org/people/ThompsonMan/sounds/129994/
+
+Google's Roboto font was used for some UI elements: https://fonts.google.com/specimen/Roboto?selection.family=Roboto
