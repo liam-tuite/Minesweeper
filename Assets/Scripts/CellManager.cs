@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System;
 using System.Collections;
 
@@ -139,47 +139,47 @@ public class CellManager : MonoBehaviour {
 	
 		Cell[] adjCells;
         // row, col, endRow and endCol are shorthand ways of writing their alternative
-		int row = cell.rowIndex, col = cell.colIndex;
+		int r = cell.rowIndex, c = cell.colIndex;
 		int endRow = GameRules.NumRows - 1, endCol = GameRules.NumCols - 1;
 
-		if (row == 0)
-			if (col == 0)
+		if (r == 0)
+			if (c == 0)
 				adjCells = new Cell[] {
-					cells [row + 1] [col], cells [row + 1] [col + 1], cells [row] [col + 1]
+					cells [r+1] [c], cells [r+1] [c+1], cells [r] [c+1]
 				};
-			else if (col == endCol)
+			else if (c == endCol)
 				adjCells = new Cell[] {
-					cells [row] [col - 1], cells [row + 1] [col - 1], cells [row + 1] [col]
-				};
-			else
-				adjCells = new Cell[] {
-					cells [row] [col - 1], cells [row + 1] [col - 1], cells [row + 1] [col], cells [row + 1] [col + 1], cells [row] [col + 1]
-				};
-		else if (row == endRow)
-			if (col == 0)
-				adjCells = new Cell[] {
-					cells [row - 1] [col], cells [row - 1] [col + 1], cells [row] [col + 1]
-				};
-			else if (col == endCol)
-				adjCells = new Cell[] {
-					cells [row] [col - 1], cells [row - 1] [col - 1], cells [row - 1] [col - 1]
+					cells [r] [c-1], cells [r+1] [c-1], cells [r+1] [c]
 				};
 			else
 				adjCells = new Cell[] {
-					cells [row] [col - 1], cells [row - 1] [col - 1], cells [row - 1] [col], cells [row - 1] [col + 1], cells [row] [col + 1]
+					cells [r] [c-1], cells [r+1] [c-1], cells [r+1] [c], cells [r+1] [c+1], cells [r] [c+1]
 				};
-		else if (col == 0)
+		else if (r == endRow)
+			if (c == 0)
+				adjCells = new Cell[] {
+					cells [r-1] [c], cells [r-1] [c+1], cells [r] [c+1]
+				};
+			else if (c == endCol)
+				adjCells = new Cell[] {
+					cells [r] [c-1], cells [r-1] [c-1], cells [r-1] [c]
+				};
+			else
+				adjCells = new Cell[] {
+					cells [r] [c-1], cells [r-1] [c-1], cells [r-1] [c], cells [r-1] [c+1], cells [r] [c+1]
+				};
+		else if (c == 0)
 			adjCells = new Cell[] {
-				cells [row - 1] [col], cells [row - 1] [col + 1], cells [row] [col + 1], cells [row + 1] [col + 1], cells [row + 1] [col]
+				cells [r-1] [c], cells [r-1] [c+1], cells [r] [c+1], cells [r+1] [c+1], cells [r+1] [c]
 			};
-		else if (col == endCol)
+		else if (c == endCol)
 			adjCells = new Cell[] {
-				cells [row - 1] [col], cells [row - 1] [col - 1], cells [row] [col - 1], cells [row + 1] [col - 1], cells [row + 1] [col]
+				cells [r-1] [c], cells [r-1] [c-1], cells [r] [c-1], cells [r+1] [c-1], cells [r+1] [c]
 			};
 		else
 			adjCells = new Cell[] {
-			    cells[row-1][col], cells[row-1][col-1], cells[row][col-1], cells[row+1][col-1], cells[row+1][col],
-			    cells[row+1][col+1], cells[row][col+1], cells[row-1][col+1]
+			    cells[r-1][c], cells[r-1][c-1], cells[r][c-1], cells[r+1][c-1], cells[r+1][c],
+			    cells[r+1][c+1], cells[r][c+1], cells[r-1][c+1]
 			};
 
 		return adjCells;
